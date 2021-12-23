@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: recipe-book-api
+  labels:
+    app: recipe-book-api
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+  selector:
+    app: recipe-book-api
+  type: LoadBalancer

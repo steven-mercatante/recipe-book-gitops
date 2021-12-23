@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: recipe-book-client-resourcequota
+spec:
+  hard:
+    pods: 10
