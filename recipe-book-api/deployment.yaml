@@ -16,22 +16,13 @@ spec:
       - name: recipe-book-api
         image: ghcr.io/steven-mercatante/recipe-book-api:main
         imagePullPolicy: Always
-        env:
-          - name: DJANGO_ALLOWED_HOSTS
-            value: "api.mercmeals.com"
-#          - name: DJANGO_DEBUG
-#            value: "true"
-          - name: DJANGO_SECRET_KEY
-            value: "shh"
+        envFrom:
+          - configMapRef:
+              name: recipe-book-api-config
+          - secretRef:
+              name: recipe-book-api-secret
         ports:
         - containerPort: 8000
-#        resources:
-#          requests:
-#            memory: "10Mi"
-#            cpu: "100m"
-#          limits:
-#            memory: "20Mi"
-#            cpu: "250m"
 #        livenessProbe:
 #          httpGet:
 #            path: /api

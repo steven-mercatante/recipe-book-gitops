@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: recipe-book-api-config
+data:
+  DJANGO_ALLOWED_HOSTS: "api.mercmeals.com"
+  DEBUG: "true"
