@@ -4,4 +4,4 @@ metadata:
   name: recipe-book-client-resourcequota
 spec:
   hard:
-    pods: 10
+    pods: 4

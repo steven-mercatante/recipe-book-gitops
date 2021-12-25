@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: recipe-book-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: recipe-book-api
@@ -15,6 +15,14 @@ spec:
       containers:
       - name: recipe-book-api
         image: ghcr.io/steven-mercatante/recipe-book-api:main
+        imagePullPolicy: Always
+        env:
+          - name: DJANGO_ALLOWED_HOSTS
+            value: "api.mercmeals.com"
+#          - name: DJANGO_DEBUG
+#            value: "true"
+          - name: DJANGO_SECRET_KEY
+            value: "shh"
         ports:
         - containerPort: 8000
 #        resources:
@@ -27,6 +35,6 @@ spec:
 #        livenessProbe:
 #          httpGet:
 #            path: /api
-#            port: 8000
+#            port: 80
 #          initialDelaySeconds: 3
 #          periodSeconds: 3
