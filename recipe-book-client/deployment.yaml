@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: recipe-book-client
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: recipe-book-client
