@@ -4,7 +4,7 @@ metadata:
   name: recipe-book-client
   namespace: recipes
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: recipe-book-client
