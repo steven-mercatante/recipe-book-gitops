@@ -14,12 +14,18 @@ spec:
     spec:
       containers:
       - name: recipe-book-client
-        image: ghcr.io/steven-mercatante/recipe-book-client:main
+        image: ghcr.io/steven-mercatante/recipe-book-client:latest
+#        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: recipe-book-client-config
+          - secretRef:
+              name: recipe-book-client-secret
 #        securityContext:
           # prevent the container from running as root
 #          runAsNonRoot: true
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
 #        resources:
 #          requests:
 #            memory: "10Mi"
@@ -27,9 +33,9 @@ spec:
 #          limits:
 #            memory: "20Mi"
 #            cpu: "250m"
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 3
-          periodSeconds: 3
+#        livenessProbe:
+#          httpGet:
+#            path: /
+#            port: 80
+#          initialDelaySeconds: 3
+#          periodSeconds: 3
