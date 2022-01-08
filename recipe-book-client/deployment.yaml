@@ -16,7 +16,7 @@ spec:
       containers:
       - name: recipe-book-client
         image: ghcr.io/steven-mercatante/recipe-book-client:latest # {"$imagepolicy": "flux-system:recipe-book-client"}
-#        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         envFrom:
           - configMapRef:
               name: recipe-book-client-config
